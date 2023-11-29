@@ -28,6 +28,8 @@ client.on("message", (message) => {
 
   if (command === "break") {
     client.commands.get("break").execute(message, args);
+  } else if (command === "nap") {
+    client.commands.get("nap").execute(message, args);
   }
 });
 
