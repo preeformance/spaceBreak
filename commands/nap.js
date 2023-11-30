@@ -1,6 +1,6 @@
 //connect to Cats
 function getCat() {
-    fetch(`URL`)
+    fetch(`https://cataas.com/cat`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
