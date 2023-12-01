@@ -34,4 +34,4 @@ client.on("message", (message) => {
 });
 
 //last line must be login
-client.login("grabStringFromDiscord");
+client.login("DISCORD_STRING");
