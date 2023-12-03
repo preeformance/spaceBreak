@@ -20,6 +20,7 @@ client.once("ready", () => {
   console.log("spaceBreak is online");
 });
 
+//Bot instructions
 client.on("message", (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
