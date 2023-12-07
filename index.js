@@ -35,4 +35,4 @@ client.on("message", (message) => {
 });
 
 //last line must be login
-client.login("DISCORD_STRING");
+client.login(process.env.DISCORD_STRING);
