@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const dotenv = require("dotenv");
 
-const { Client, Intents } = require("discord.js");
+const { Client, GatewayIntentBits } = require("discord.js");
 
 const client = new Discord.Client({
   intents: [GatewayIntentBits.Guild_Messages],
