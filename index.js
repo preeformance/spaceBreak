@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const { Client, GatewayIntentBits } = require("discord.js");
 
 const client = new Discord.Client({
-  intents: [GatewayIntentBits.Guild_Messages],
+  intents: [GatewayIntentBits.SEND_MESSAGES],
 });
 
 const prefix = "!";
