@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 const { Client, GatewayIntentBits } = require("discord.js");
 
-const client = new Discord.Client({
+const client = new Client({
   intents: [GatewayIntentBits.SEND_MESSAGES],
 });
 
