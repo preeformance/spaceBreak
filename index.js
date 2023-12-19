@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
-const dotenv = require("dotenv");
-dotenv.config({ debug: true });
-
+const dotenv = require("dotenv").config({ debug: true });
+console.log(dotenv);
 const { Client, GatewayIntentBits } = require("discord.js");
 
 const client = new Client({
@@ -47,3 +46,4 @@ client.on("message", (message) => {
 
 //last line must be login
 client.login(process.env.DISCORD_STRING);
+console.log(process.env.DISCORD_STRING);
