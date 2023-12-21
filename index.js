@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
 const dotenv = require("dotenv").config({ debug: true });
-console.log(dotenv);
-const { Client, GatewayIntentBits } = require("discord.js");
+
+const { Client, IntentsBitField } = require("discord.js");
 
 const client = new Client({
   intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-    GatewayIntentBits.GuildMembers,
+    IntentsBitField.Flags.Guilds,
+    IntentsBitField.Flags.GuildMembers,
+    IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.MessageContent,
   ],
 });
 
@@ -31,19 +31,23 @@ client.once("ready", () => {
 });
 
 //Bot instructions
-client.on("message", (message) => {
+client.on("messageCreate", (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-  const args = message.content.slice(prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
-
-  if (command === "break") {
-    client.commands.get("break").execute(message, args);
-  } else if (command === "nap") {
-    client.commands.get("nap").execute(message, args);
+  if (message.content === "!break") {
+    message.reply("take a break!", {
+      files: [`https://api.nasa.gov/planetary/apod?=${process.env.API_KEY}`],
+    });
   }
+  // const args = message.content.slice(prefix.length).split(/ +/);
+  // const command = args.shift().toLowerCase();
+
+  // if (command === "break") {
+  //   message.reply("break acknowledged");
+  //   client.commands.get("break").execute(message, args);
+  // } else if (command === "nap") {
+  //   client.commands.get("nap").execute(message, args);
+  //  }
 });
 
 //last line must be login
 client.login(process.env.DISCORD_STRING);
-console.log(process.env.DISCORD_STRING);

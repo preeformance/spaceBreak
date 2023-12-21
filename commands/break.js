@@ -15,6 +15,6 @@ module.exports = {
   name: "break",
   description: "sends space photo and encourages break",
   execute(message, args) {
-    message.channel.send(`https://api.nasa.gov/planetary/apod?=${API_KEY}`);
+    message.reply(`https://api.nasa.gov/planetary/apod?=${API_KEY}`);
   },
 };
