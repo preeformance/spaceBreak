@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+
 const dotenv = require("dotenv").config({ debug: true });
 
 const { Client, IntentsBitField } = require("discord.js");
@@ -33,10 +34,12 @@ client.once("ready", () => {
 //Bot instructions
 client.on("messageCreate", (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
+  var picture = get(
+    `https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}`
+  );
+
   if (message.content === "!break") {
-    message.reply("take a break!", {
-      files: [`https://api.nasa.gov/planetary/apod?=${process.env.API_KEY}`],
-    });
+    message.reply("take a break!", picture[0]);
   }
   // const args = message.content.slice(prefix.length).split(/ +/);
   // const command = args.shift().toLowerCase();
